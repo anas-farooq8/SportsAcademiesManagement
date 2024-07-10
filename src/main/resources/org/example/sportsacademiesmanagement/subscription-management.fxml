@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="580.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.sportsacademiesmanagement.controller.SubscriptionManagementController">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="598.0" prefWidth="740.0" spacing="10" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <!-- Title -->
+            <Label style="-fx-font-size: 24px;" text="Subscription Management" />
+
+            <!-- Form for subscription creation -->
+            <GridPane hgap="10" vgap="10">
+                <Label text="Athlete:" />
+                <ChoiceBox fx:id="athleteChoiceBox" GridPane.columnIndex="1" />
+
+                <Label text="Training Program:" GridPane.rowIndex="1" />
+                <ChoiceBox fx:id="trainingProgramChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Monthly Cost:" GridPane.rowIndex="2" />
+                <TextField fx:id="monthlyCostField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Button fx:id="createSubscriptionBtn" onAction="#handleCreateSubscription" style="-fx-cursor: hand;" text="Create Subscription" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <columnConstraints>
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+
+            <!-- Table for displaying subscriptions -->
+            <TableView fx:id="subscriptionTable" prefHeight="250.0" prefWidth="760.0">
+                <columns>
+                    <TableColumn fx:id="subscriptionIdColumn" prefWidth="100.0" text="Subscription ID" />
+                    <TableColumn fx:id="athleteNameColumn" prefWidth="120.0" text="Athlete" />
+                    <TableColumn fx:id="programNameColumn" prefWidth="400.0" text="Training Program" />
+                    <TableColumn fx:id="monthlyCostColumn" prefWidth="120.0" text="Monthly Cost" />
+                </columns>
+            </TableView>
+
+            <!-- Action Buttons -->
+            <HBox spacing="10">
+                <Button onAction="#handleCancelSubscription" style="-fx-cursor: hand;" text="Cancel Subscription" />
+            <Button onAction="#clearForm" style="-fx-cursor: hand;" text="Clear Form" />
+            </HBox>
+
+            <!-- Exit Button -->
+            <Button alignment="CENTER" onAction="#handleExit" prefHeight="25.0" prefWidth="75.0" style="-fx-cursor: hand;" text="Exit" />
+        </VBox>
+    </children>
+</AnchorPane>

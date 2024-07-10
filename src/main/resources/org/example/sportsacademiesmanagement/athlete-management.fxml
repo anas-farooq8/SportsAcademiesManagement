@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="620.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.sportsacademiesmanagement.controller.AthleteManagementController">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="660.0" prefWidth="900.0" spacing="10" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <!-- Title -->
+            <Label style="-fx-font-size: 24px;" text="Athlete Management" />
+
+            <!-- Form for athlete registration -->
+            <GridPane hgap="10" vgap="10">
+                <Label text="First Name:" />
+                <TextField fx:id="firstNameField" GridPane.columnIndex="1" />
+
+                <Label text="Last Name:" GridPane.rowIndex="1" />
+                <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Gender:" GridPane.rowIndex="2" />
+                <ChoiceBox fx:id="genderField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label text="Date of Birth:" GridPane.rowIndex="3" />
+                <DatePicker fx:id="dobPicker" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label text="Contact Info:" GridPane.rowIndex="4" />
+                <TextField fx:id="contactField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <Label text="Professional:" GridPane.rowIndex="5" />
+                <HBox GridPane.columnIndex="1" GridPane.rowIndex="5" spacing="10">
+                    <RadioButton fx:id="professionalTrue" text="True" />
+                    <RadioButton fx:id="professionalFalse" text="False" />
+                </HBox>
+
+                <Label text="Experience Level (1-5):" GridPane.rowIndex="6" />
+                <ChoiceBox fx:id="experienceLevelField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                <Button fx:id="registerBtn" onAction="#handleRegisterAthlete" style="-fx-cursor: hand;" text="Register Athlete" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <columnConstraints>
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+
+            <!-- Table for displaying athletes -->
+            <TableView fx:id="athleteTable" prefHeight="250.0" prefWidth="760.0">
+                <columns>
+                    <TableColumn fx:id="idColumn" prefWidth="60.0" text="ID" />
+                    <TableColumn fx:id="firstNameColumn" prefWidth="100.0" text="First Name" />
+                    <TableColumn fx:id="lastNameColumn" prefWidth="100.0" text="Last Name" />
+                    <TableColumn fx:id="genderColumn" prefWidth="80" text="Gender" />
+                    <TableColumn fx:id="dobColumn" prefWidth="100.0" text="Date of Birth" />
+                    <TableColumn fx:id="contactColumn" prefWidth="120.0" text="Contact Info" />
+                    <TableColumn fx:id="professionalColumn" prefWidth="90.0" text="Professional" />
+                    <TableColumn fx:id="experienceLevelColumn" prefWidth="110.0" text="Experience Level" />
+                </columns>
+            </TableView>
+
+            <!-- Edit and Payment Section -->
+            <HBox spacing="10">
+                <Button onAction="#handleEditAthlete" prefWidth="126.0" style="-fx-cursor: hand;" text="Edit Selected Athlete" />
+                <Button onAction="#clearForm" style="-fx-cursor: hand;" text="Clear Form" />
+            </HBox>
+
+            <!-- Exit Button -->
+            <Button alignment="CENTER" onAction="#handleExit" prefHeight="25.0" prefWidth="75.0" style="-fx-cursor: hand;" text="Exit" />
+        </VBox>
+    </children>
+</AnchorPane>
