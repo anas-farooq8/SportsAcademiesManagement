@@ -59,7 +59,7 @@ The project includes the following classes and interfaces:
     ```
 2. Navigate to the project directory:
     ```bash
-    Open in intellij idea
+    Open in intellij idea.
     ```
 3. Build the project using your preferred IDE or build tool.
     ```bash
